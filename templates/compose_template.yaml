@@ -1,0 +1,15 @@
+services:{% for node in range(number_nodes) %}
+  redisnode{{ node }}:
+    image: redis_mine
+    command: redis-server redis.conf
+  {% endfor %}
+  cluster_creator:
+    image: redis:latest
+    command: redis-cli --cluster create {% for node in range(number_nodes) %} redisnode{{ node }}:9000 {% endfor %} --cluster-yes
+    depends_on:{% for node in range(number_nodes) %}
+      - redisnode{{ node }}{% endfor %}
+
+  nginx_redis:
+    image: nginx_redis_mine
+    depends_on:{% for node in range(number_nodes) %}
+      - redisnode{{ node }}{% endfor %}
