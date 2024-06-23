@@ -6,7 +6,7 @@ This project provides a solution to deploy, configure, and maintain a highly ava
 
 ## Features
 * **Highly Available Redis Cluster**: Deploy a Redis cluster with multiple nodes to ensure high availability and fault tolerance.
-* **Dynamic Scaling**: Automatically scale the Redis cluster based on demand.
+* **Dynamic Scaling**: Generate configuration and cpoy to scale the Redis cluster based on demand.
 * **Load Balancing**: Use NGINX as a reverse proxy to distribute traffic evenly across Redis nodes.
 * **Docker Swarm Integration**: Leverage Docker Swarm for orchestration and management of the Redis cluster.
 * **Jinja Templating**: Generate configuration files dynamically using Jinja templates.
